@@ -4,15 +4,6 @@ class Api::V1::ItemsController < ApplicationController
   end
 
   def show
-    render json: Item.find(params[:id])
+    @item = Item.find(params[:id])
   end
-
-  def create
-    render json: Item.create(item_params)
-  end
-
-  private
-    def item_params
-      params.permit(:name, :description)
-    end
 end
